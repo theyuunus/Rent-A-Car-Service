@@ -1,0 +1,46 @@
+{
+  "cars": [
+    {
+      "id": 1,
+      "brand": "Mercedes",
+      "rating": 112,
+      "carName": "Mercedes Benz XC90",
+      "image": 1,
+      "model": "Model-202",
+      "price": 50,
+      "speed": "20kmpl",
+      "gps": "GPS Navigation",
+      "seatType": "Heated seats",
+      "automatic": "Automatic",
+      "description": " Dolor labore lorem no accusam sit justo sadipscing labore invidunt voluptua, amet duo et gubergren vero gubergren dolor. At diam. Dolor labore lorem no accusam sit justo sadipscing labore invidunt voluptua, amet duo et gubergren vero gubergren dolor. At diam."
+    },
+    {
+      "id": 1,
+      "brand": "Nissan",
+      "rating": 112,
+      "carName": "Nissan gt",
+      "image": "img01",
+      "model": "Model 3",
+      "price": 50,
+      "speed": "20kmpl",
+      "gps": "GPS Navigation",
+      "seatType": "Heated seats",
+      "automatic": "Automatic",
+      "description": " Dolor labore lorem no accusam sit justo sadipscing labore invidunt voluptua, amet duo et gubergren vero gubergren dolor. At diam. Dolor labore lorem no accusam sit justo sadipscing labore invidunt voluptua, amet duo et gubergren vero gubergren dolor. At diam."
+    },
+    {
+      "id": 1,
+      "brand": "Nissan",
+      "rating": 112,
+      "carName": "Nissan gt",
+      "image": "img01",
+      "model": "Model 3",
+      "price": 50,
+      "speed": "20kmpl",
+      "gps": "GPS Navigation",
+      "seatType": "Heated seats",
+      "automatic": "Automatic",
+      "description": " Dolor labore lorem no accusam sit justo sadipscing labore invidunt voluptua, amet duo et gubergren vero gubergren dolor. At diam. Dolor labore lorem no accusam sit justo sadipscing labore invidunt voluptua, amet duo et gubergren vero gubergren dolor. At diam."
+    }
+  ]
+}
