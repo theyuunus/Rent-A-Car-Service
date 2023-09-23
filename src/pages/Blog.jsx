@@ -12,7 +12,7 @@ const Blog = () => {
         <Container>
           <Row>
             <BlogList />
-            <BlogList />
+            {/* <BlogList /> */}
           </Row>
         </Container>
       </section>

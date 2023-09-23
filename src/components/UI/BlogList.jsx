@@ -22,7 +22,7 @@ const BlogItem = ({ item }) => {
       <div className="blog__item">
         <img src={imgUrl} alt="" className="w-100" />
         <div className="blog__info p-3">
-          <Link to={`/blogs/${title}`} className="blog__title">
+          <Link to={`/blog/${title}`} className="blog__title">
             {title}
           </Link>
           <p className="section__description mt-3">
@@ -31,7 +31,7 @@ const BlogItem = ({ item }) => {
               : description}
           </p>
 
-          <Link to={`/blogs/${title}`} className="read__more">
+          <Link to={`/blog/${title}`} className="read__more">
             Read More
           </Link>
 
