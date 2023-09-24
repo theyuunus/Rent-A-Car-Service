@@ -1,4 +1,10 @@
+.cars {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
 .car__item {
+  width: 380px;
   border: 1px solid #7c8a9736;
   padding: 20px;
   border-radius: 5px;
@@ -18,10 +24,10 @@
   padding: 8px 0px;
 }
 
-.car__img img{
+.car__img img {
   padding: 0px 10px 0px 10px;
   width: 280px;
-  height: 170px;
+  height: 190px;
   overflow: hidden;
 }
 

@@ -27,6 +27,7 @@ const CarListing = () => {
               </div>
             </Col>
 
+            <CarItem />
             {/* {carData.map((item) => (
               <CarItem item={item} key={item.id} />
             ))} */}
