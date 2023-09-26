@@ -17,7 +17,7 @@ const CarItem = () => {
   return (
     <div>
       <div className="cars">
-        {cars.slice(0, 4).map((cars) => (
+        {cars.slice(0, 12).map((cars) => (
           <Col lg="4" md="4" sm="6" className="mb-5">
             <div className="car__item" key={cars.id}>
               <div className="car__img">
