@@ -13,10 +13,9 @@ export const routers = [
   {id: "about", path: "/About", element: <About />},
   {id: "car", path: "/cars", element: <CarListing />},
   {id: "blog", path: "/blog", element: <Blog />},
-  // {id: "blog", path: "/blog/:title", element: <Blog />},
   {id: "contact", path: "/contact", element: <Contact />},
-  {id: "blogDetails", path: "/blogDetails/", element: <BlogDetails />},
+  {id: "blogDetails", path: "/blog/:title/", element: <BlogDetails />},
   {id: "login", path: "/Login", element: <Login />},
   {id: "notFound", path: "*", element: <NotFound />},
-  {id: "carDetails", path: "/carDetails", element: <CarDetails />},
+  {id: "carDetails", path: "/cars/:title", element: <CarDetails />},
 ]

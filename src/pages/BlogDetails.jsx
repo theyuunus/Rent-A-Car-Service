@@ -108,7 +108,7 @@ const BlogDetails = () => {
                     <div className="recent__blog-item d-flex gap-3">
                       <img src={item.imgUrl} alt="" className="w-25 rounded-2" />
                       <h6>
-                        <Link to={`/blogs/${item.title}`}>{blog.title}</Link>
+                        <Link to={`/blog/${item.title}`}>{blog.title}</Link>
                       </h6>
                     </div>
                   </div>

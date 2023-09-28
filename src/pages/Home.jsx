@@ -1,20 +1,28 @@
-import React from "react";
-
+import React, { useEffect, useState } from "react";
 import HeroSlider from "../components/UI/HeroSlider";
 import Helmet from "../components/Helmet/Helmet";
-
 import { Container, Row, Col } from "reactstrap";
 import FindCarForm from "../components/UI/FindCarForm";
 import AboutSection from "../components/UI/AboutSection";
 import ServicesList from "../components/UI/ServicesList";
-// import carData from "../assets/data/carData";
-// import CarItem from "../components/UI/CarItem";
+import { Link } from "react-router-dom";
 import BecomeDriverSection from "../components/UI/BecomeDriverSection";
 import Testimonial from "../components/UI/Testimonial";
+import axios from "axios";
 
 import BlogList from "../components/UI/BlogList";
 
 const Home = () => {
+
+  const [cars, setCars] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(`http://localhost:8888/cars`)
+      .then((res) => setCars(res.data))
+      .catch((err) => console.error(err));
+  }, []);
+
   return (
     <Helmet title="Home">
       {/* ============= hero section =========== */}
@@ -61,9 +69,51 @@ const Home = () => {
               <h2 className="section__title">Hot Offers</h2>
             </Col>
 
-            {/* {carData.slice(0, 6).map((item) => (
-              <CarItem item={item} key={item.id} />
-            ))} */}
+            <div className="cars">
+              {cars.slice(0, 6).map((cars) => (
+                <Col lg="4" md="4" sm="6" className="mb-5">
+                  <div className="car__item" key={cars.id}>
+                    <div className="car__img">
+                      <img className="w-100" src={process.env.PUBLIC_URL + "/images/" + cars.image} alt="error" />
+                    </div>
+
+                    <div className="car__item-content mt-4">
+                      <h4 className="section__title text-center" key={cars.id}>{cars.carName}</h4>
+                      <h6 className="rent__price text-center mt-" key={cars.id}>
+                        {cars.price}.00 <span>/ Day</span>
+                      </h6>
+
+                      <div className="car__item-info d-flex align-items-center justify-content-between mt-3 mb-4">
+                        <span className=" d-flex align-items-center gap-1" key={cars.id}>
+                          <i className="ri-car-line"></i> {cars.model}
+                        </span>
+                        <span className=" d-flex align-items-center gap-1" key={cars.id}>
+                          <i className="ri-settings-2-line"></i> {cars.automatic}
+                        </span>
+                        <span className=" d-flex align-items-center gap-1" key={cars.id}>
+                          <i className="ri-timer-flash-line"></i> {cars.speed}
+                        </span>
+                      </div>
+
+                      <Link to={`/cars/${cars.carName}`}>
+                        <button className="w-50 car__item-btn car__btn-rent">
+                          Rent
+                        </button>
+                      </Link>
+
+                      <Link to={`/cars/${cars.carName}`}>
+                        <button className="w-50 car__item-btn car__btn-details">
+                          Details
+                        </button>
+                      </Link>
+                    </div>
+                  </div>
+                </Col>
+              ))}
+            </div>
+
+
+
           </Row>
         </Container>
       </section>
