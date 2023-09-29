@@ -1,6 +1,7 @@
 .cars {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  padding: 0px 50px 0px 60px;
 }
 
 .car__item {
@@ -59,6 +60,11 @@
 }
 
 @media only screen and (max-width: 992px) {
+  .cars {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .car__item h4 {
     font-size: 1.1rem;
     margin-bottom: 0;
@@ -85,6 +91,12 @@
 }
 
 @media only screen and (max-width: 768px) {
+  .cars {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    padding: 0px 160px 0px 160px;
+  }
+
   .car__item h4 {
     font-size: 1rem;
   }

@@ -8,17 +8,19 @@ export default function Login() {
             <Helmet title="Login">
                 <div className="login">
                     <div className='login-back-img'>
-                        <div className='login-section-div'>
-                            <h1>
-                                Login In
-                            </h1>
-                            <div className="login-section-div-inputs">
-                                <input type="text" />
-                                <br />
-                                <input type="password" />
-                            </div>
-                            <div className="login-section-div-btn">
-                                <button>Enter</button>
+                        <div className="login-div">
+                            <div className='login-section-div'>
+                                <h1>
+                                    Login In
+                                </h1>
+                                <div className="login-section-div-inputs">
+                                    <input type="text" />
+                                    <br />
+                                    <input type="password" />
+                                </div>
+                                <div className="login-section-div-btn">
+                                    <button>Enter</button>
+                                </div>
                             </div>
                         </div>
                     </div>
