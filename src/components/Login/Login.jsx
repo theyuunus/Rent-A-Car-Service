@@ -2,15 +2,19 @@ import React from 'react'
 import "./Login.scss"
 import Helmet from "../Helmet/Helmet"
 import CarSlider from "../UI/LoginSlider"
+import img01 from "../../images/lambo 1.png"
+import img02 from "../../images/Rolls Royce 1.png"
+import img03 from "../../images/audi 1.png"
+import img04 from "../../images/mers 1.png"
+import img05 from "../../images/McLaren 1.png"
 
 export default function Login() {
     const carImages = [
-        '../../images/1.png',
-        '../../images/2.png',
-        '../../images/3.png',
-        '../../images/4.png',
-        '../../images/5.png',
-        // Qo'shimcha rasmlar
+        img01,
+        img02,
+        img03,
+        img04,
+        img05,
     ];
     return (
         <React.Fragment>
