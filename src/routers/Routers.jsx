@@ -8,6 +8,7 @@ import BlogDetails from "../pages/BlogDetails";
 import NotFound from "../pages/NotFound";
 import Contact from "../pages/Contact";
 import Login from "../pages/Login";
+import Register from "../pages/register"
 
 export const routers = [
   {id: "about", path: "/About", element: <About />},

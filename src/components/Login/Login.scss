@@ -10,8 +10,12 @@
     }
 
     &-div{
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        align-items: center;
         padding-top: 18vh;
-        padding-left: 18vh;
+        // padding-left: 18vh;
     }
 
     &-section-div {
@@ -47,6 +51,7 @@
                 background: transparent;
                 margin-top: 40px;
                 border: none;
+                outline: none;
                 border-bottom: 3px solid #000c6bd0;
             }
         }
