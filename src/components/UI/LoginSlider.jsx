@@ -12,12 +12,19 @@ const CarSlider = ({ images }) => {
     autoplaySpeed: 2000, 
   };
 
+  const containerStyle = {
+    width: "46%",
+    alignItems: "center",
+    paddingTop: "50px",
+    overflow: "hidden",
+  };
+
   return (
-    <div style={{width: "46%", alignItems: "center", paddingTop: "50px"}}>
+    <div style={containerStyle}>
       <Slider {...settings}>
         {images.map((image, index) => (
           <div key={index}>
-            <img style={{width: "700px",}} src={image} alt={`Image ${index}`} />
+            <img style={{ width: "700px" }} src={image} alt={`Image ${index}`} />
           </div>
         ))}
       </Slider>

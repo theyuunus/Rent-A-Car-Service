@@ -23,17 +23,19 @@ export default function Login() {
                     <div className='login-back-img'>
                         <div className="login-div">
                             <div className='login-section-div'>
-                                <h1>
-                                    Login In
-                                </h1>
-                                <div className="login-section-div-inputs">
-                                    <input placeholder='Name' type="text" />
-                                    <br />
-                                    <input placeholder='Password' type="password" />
-                                </div>
-                                <div className="login-section-div-btn">
-                                    <button>Enter</button>
-                                </div>
+                                <form >
+                                    <h1>
+                                        Login In
+                                    </h1>
+                                    <div className="login-section-div-inputs">
+                                        <input placeholder='Name' type="text" />
+                                        <br />
+                                        <input placeholder='Password' type="password" />
+                                    </div>
+                                    <div className="login-section-div-btn">
+                                        <button type='submit'>Enter</button>
+                                    </div>
+                                </form>
                             </div>
                             <CarSlider images={carImages} />
                         </div>
