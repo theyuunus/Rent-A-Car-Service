@@ -144,9 +144,9 @@
   ],
   "User": [
     {
-      "UserName": "",
-      "UserEmail": "",
-      "UserPassword": ""
+      "id": 1,
+      "name": "Yunus",
+      "password": "9887"
     }
   ]
 }
