@@ -1,10 +1,10 @@
 import React from 'react'
-import Register from '../components/register/register'
+import Register from "../components/register/register"
 
 export default function register() {
   return (
-    <div>
+    <React.Fragment>
         <Register />
-    </div>
+    </React.Fragment>
   )
 }

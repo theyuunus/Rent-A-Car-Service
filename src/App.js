@@ -2,8 +2,6 @@ import { Route, Routes } from "react-router-dom";
 import Layout from "./components/Layout/Layout";
 import { routers } from "./routers/Routers";
 import Home from "./pages/Home";
-// import Header from "./components/Header/Header";
-// import Footer from "./components/Footer/Footer";
 
 function App() {
   const renderRoutes = () =>
