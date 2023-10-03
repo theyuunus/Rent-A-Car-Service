@@ -2,12 +2,14 @@ import React, { useState } from 'react';
 import './Login.scss';
 import Helmet from '../Helmet/Helmet';
 import CarSlider from '../UI/LoginSlider';
+import axios from 'axios';
+
 import img01 from '../../images/lambo 1.png';
 import img02 from '../../images/Rolls Royce 1.png';
 import img03 from '../../images/audi 1.png';
 import img04 from '../../images/mers 1.png';
 import img05 from '../../images/McLaren 1.png';
-import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 export default function Login({ handleLogin }) {
     const [formData, setFormData] = useState({ name: '', password: '' });
@@ -18,26 +20,26 @@ export default function Login({ handleLogin }) {
         setFormData({ ...formData, [name]: value });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        axios.get('http://localhost:8888/user')
-            .then((response) => response.data)
-            .then((data) => {
-                const user = data.find((item) => item.name === formData.name && item.password === formData.password);
-                if (user) {
-                    performLogin(user);
-                } else {
-                    alert('Login xato: Foydalanuvchi topilmadi');
-                }
-            })
-            .catch((error) => {
-                console.error(error);
-            });
+        try {
+            const response = await axios.get('http://localhost:8888/user');
+            const data = response.data;
+            const user = data.find((item) => item.name === formData.name && item.password === formData.password);
+
+            if (user) {
+                performLogin(user);
+            } else {
+                alert('Login xato: Foydalanuvchi topilmadi');
+            }
+        } catch (error) {
+            console.error(error);
+        }
     };
 
     const performLogin = (user) => {
         setCurrentUser(user);
-        handleLogin(user); 
+        handleLogin(user);
     };
 
     const carImages = [img01, img02, img03, img04, img05];
@@ -52,7 +54,7 @@ export default function Login({ handleLogin }) {
                             {currentUser ? (
                                 <div>
                                     <h2>Tizimga xush kelibsiz, {currentUser.name}!</h2>
-                                    <button onClick={() => setCurrentUser(null)}>Chiqish</button>
+                                  <Link to={"/"}><button onClick={() => setCurrentUser(null)}>Chiqish</button></Link>
                                 </div>
                             ) : (
                                 <form onSubmit={handleSubmit}>
@@ -68,7 +70,7 @@ export default function Login({ handleLogin }) {
                                 </form>
                             )}
                         </div>
-                        <CarSlider images={carImages} />
+                        <CarSlider images={carImages.map((image, index) => ({ id: index, src: image }))} />
                     </div>
                 </div>
             </div>

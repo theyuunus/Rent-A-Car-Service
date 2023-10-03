@@ -43,7 +43,7 @@ export default function Register({ handleRegister }) {
         <div className="Register">
           <div className="Register-back-img">
             <div className="Register-div">
-              <CarSlider images={carImages} />
+              <CarSlider images={carImages.map((image, index) => ({ id: index, src: image }))} />
               <div className="Register-section-div">
                 <form onSubmit={handleSubmit}>
                   <h1>Sing Up</h1>

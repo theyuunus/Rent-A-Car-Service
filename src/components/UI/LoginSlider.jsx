@@ -8,23 +8,27 @@ const CarSlider = ({ images }) => {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    autoplay: true, 
-    autoplaySpeed: 2000, 
+    autoplay: true,
+    autoplaySpeed: 2000,
   };
 
-  const containerStyle = {
+  const sliderContainerStyle = {
     width: "46%",
     alignItems: "center",
     paddingTop: "50px",
     overflow: "hidden",
   };
 
+  const imageStyle = {
+    width: "100%", // Ensure the image scales responsively
+  };
+
   return (
-    <div style={containerStyle}>
+    <div style={sliderContainerStyle}>
       <Slider {...settings}>
         {images.map((image, index) => (
           <div key={index}>
-            <img style={{ width: "700px" }} src={image} alt={`Image ${index}`} />
+            <img style={imageStyle} src={image.src} alt={`Image ${index}`} />
           </div>
         ))}
       </Slider>
