@@ -1,22 +1,7 @@
-import { Route, Routes } from "react-router-dom";
 import Layout from "./components/Layout/Layout";
-import { routers } from "./routers/Routers";
-import Home from "./pages/Home";
 
 function App() {
-  const renderRoutes = () =>
-    routers.map(({ path, id, element }) => (
-      <Route key={id} path={path} element={element} />
-    ));
-
-  return (
-    <Routes>
-      <Route path="/" element={<Layout />}>
-        <Route index element={<Home />} />
-        {renderRoutes()}
-      </Route>
-    </Routes>
-  );
+  return <Layout />;
 }
 
 export default App;

@@ -27,7 +27,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "concurrently \"react-scripts start\" \"json-server --watch db/db.json --port 8888\"",
+    "start": "concurrently \"npm run react-start\" \"json-server --watch db/db.json --port 8080\"",
+    "react-start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -45,9 +46,9 @@
       "not op_mini all"
     ],
     "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
+      "last 1 Chrome version",
+      "last 1 Firefox version",
+      "last 1 Safari version"
     ]
   }
 }

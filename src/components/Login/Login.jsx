@@ -4,11 +4,11 @@ import Helmet from '../Helmet/Helmet';
 import CarSlider from '../UI/LoginSlider';
 import axios from 'axios';
 
-import img01 from '../../images/lambo 1.png';
-import img02 from '../../images/Rolls Royce 1.png';
-import img03 from '../../images/audi 1.png';
-import img04 from '../../images/mers 1.png';
-import img05 from '../../images/McLaren 1.png';
+import img01 from "../../images/McLaren 1.png"
+import img02 from "../../images/Rolls Royce 1.png"
+import img03 from "../../images/audi 1.png"
+import img04 from "../../images/lambo 1.png"
+import img05 from "../../images/mers 1.png"
 import { Link } from 'react-router-dom';
 
 export default function Login({ handleLogin }) {
@@ -23,7 +23,7 @@ export default function Login({ handleLogin }) {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.get('http://localhost:8888/user');
+            const response = await axios.get('http://localhost:8080/user');
             const data = response.data;
             const user = data.find((item) => item.name === formData.name && item.password === formData.password);
 

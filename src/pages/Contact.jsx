@@ -35,7 +35,7 @@ const Contact = () => {
 
     console.log(e.target);
 
-    emailjs.sendForm('service_rtvrb4b', 'template_2wi2hn8', e.target , 'mBH0uFup745fqfq52')
+    emailjs.sendForm('service_rtvrb4b', 'template_2wi2hn8', e.target, 'mBH0uFup745fqfq52')
       .then((result) => {
         console.log(result.text);
       }, (error) => {
@@ -57,7 +57,7 @@ const Contact = () => {
                   <Input placeholder="Your Name" type="text" name='name' required />
                 </FormGroup>
                 <FormGroup className="contact__form">
-                  <Input placeholder="Email" type="email" name='email'  required/>
+                  <Input placeholder="Email" type="email" name='email' required />
                 </FormGroup>
                 <FormGroup className="contact__form">
                   <textarea
@@ -98,7 +98,7 @@ const Contact = () => {
                       key={index}
                       className="social__link-icon"
                     >
-                      <i class={item.icon}></i>
+                      <i className={item.icon}></i>
                     </Link>
                   ))}
                 </div>

@@ -28,18 +28,8 @@
   font-size: 0.7rem;
 }
 
-.header__top__help a{
-  text-decoration: none;
-  color:#fff;
-}
-.header__top__help a:hover{
-  text-decoration: underline;
-  color:#fff;
-}
-
 .header__top__right a {
   text-decoration: none;
-  list-style: none;
   color: #fff;
   font-size: 0.9rem;
 }
@@ -169,21 +159,6 @@
 
 .nav__active {
   color: #f9a826;
-}
-
-.nav__right{
-  display: flex;
-  gap: 30px;
-  align-items: center;
-}
-
-.nav__right  a{
-  text-decoration: none;
-  color: #fff;
-}
-.nav__right a:hover{
-  text-decoration: underline;
-  color:#fff;
 }
 
 @media only screen and (max-width: 768px) {

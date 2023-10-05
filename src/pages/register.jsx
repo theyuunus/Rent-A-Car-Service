@@ -4,7 +4,7 @@ import Register from "../components/register/register"
 export default function register() {
   return (
     <React.Fragment>
-        <Register />
+      <Register />
     </React.Fragment>
   )
 }

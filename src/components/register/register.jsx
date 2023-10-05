@@ -21,7 +21,7 @@ export default function Register({ handleRegister }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post('http://localhost:8888/user', formData, {
+      .post('http://localhost:8080/user', formData, {
         headers: {
           'Content-Type': 'application/json',
         },

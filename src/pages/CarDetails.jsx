@@ -1,84 +1,125 @@
 import React, { useEffect, useState } from "react";
 import { Container, Row, Col } from "reactstrap";
-import { useParams } from "react-router-dom";
-import axios from "axios";
 import Helmet from "../components/Helmet/Helmet";
+import { useParams } from "react-router-dom";
 import BookingForm from "../components/UI/BookingForm";
 import PaymentMethod from "../components/UI/PaymentMethod";
 
 const CarDetails = () => {
-  const { carName } = useParams();
-  const [cars, setCars] = useState({});
+  const { slug } = useParams();
+  const [singleCarItem, setSingleCarItem] = useState(null);
 
   useEffect(() => {
-    // Fetch car information
-    axios
-      .get(`http://localhost:8888/cars/${carName}`)
-      .then((res) => setCars(res.data))
-      .catch((err) => console.error(err));
-  }, [carName]);
+    fetch(`http://localhost:8080/cars?carName=${slug}`)
+      .then((response) => response.json())
+      .then((data) => {
+        if (data && data.length > 0) {
+          setSingleCarItem(data[0]);
+        } else {
+          setSingleCarItem(null);
+        }
+      })
+      .catch((error) => console.error("Ma'lumotlar olinmadi: ", error));
+  }, [slug]);
+
+  if (!singleCarItem) {
+    return <div>Ma'lumotlar topilmadi</div>;
+  }
 
   return (
-    <Helmet title={cars.carName}>
+    <div>
+      <Helmet title={singleCarItem.carName} />
       <section>
         <Container>
           <Row>
-            <Col lg="6">
-              <img src={cars.image} alt={cars.carName} />
+            <Col lg="6" key={singleCarItem.id}>
+              <img
+                className="w-100"
+                src={process.env.PUBLIC_URL + "/images/" + singleCarItem.image}
+                alt={singleCarItem.carName}
+              />
             </Col>
 
             <Col lg="6">
               <div className="car__info">
-                <h2 className="section__title">{cars.carName}</h2>
+                <h2 className="section__title">{singleCarItem.carName}</h2>
 
-                <div className="d-flex align-items-center gap-5 mb-4 mt-3">
+                <div className=" d-flex align-items-center gap-5 mb-4 mt-3">
                   <h6 className="rent__price fw-bold fs-4">
-                    ${cars.price}.00 / Day
+                    ${singleCarItem.price}.00 / Day
                   </h6>
 
-                  <span className="d-flex align-items-center gap-2">
+                  <span className=" d-flex align-items-center gap-2">
                     <span style={{ color: "#f9a826" }}>
-                      {Array.from({ length: cars.rating }).map((_, index) => (
-                        <i key={index} className="ri-star-s-fill"></i>
-                      ))}
+                      <i className="ri-star-s-fill"></i>
+                      <i className="ri-star-s-fill"></i>
+                      <i className="ri-star-s-fill"></i>
+                      <i className="ri-star-s-fill"></i>
+                      <i className="ri-star-s-fill"></i>
                     </span>
-                    ({cars.rating} ratings)
+                    ({singleCarItem.rating} ratings)
                   </span>
                 </div>
 
-                <p className="section__description">{cars.description}</p>
+                <p className="section__description">
+                  {singleCarItem.description}
+                </p>
 
-                <div className="d-flex align-items-center mt-3" style={{ columnGap: "4rem" }}>
-                  <span className="d-flex align-items-center gap-1 section__description">
-                    <i className="ri-roadster-line" style={{ color: "#f9a826" }}></i>{" "}
-                    {cars.model}
+                <div
+                  className=" d-flex align-items-center mt-3"
+                  style={{ columnGap: "4rem" }}
+                >
+                  <span className=" d-flex align-items-center gap-1 section__description">
+                    <i
+                      className="ri-roadster-line"
+                      style={{ color: "#f9a826" }}
+                    ></i>{" "}
+                    {singleCarItem.model}
                   </span>
 
-                  <span className="d-flex align-items-center gap-1 section__description">
-                    <i className="ri-settings-2-line" style={{ color: "#f9a826" }}></i>{" "}
-                    {cars.automatic}
+                  <span className=" d-flex align-items-center gap-1 section__description">
+                    <i
+                      className="ri-settings-2-line"
+                      style={{ color: "#f9a826" }}
+                    ></i>{" "}
+                    {singleCarItem.automatic}
                   </span>
 
-                  <span className="d-flex align-items-center gap-1 section__description">
-                    <i className="ri-timer-flash-line" style={{ color: "#f9a826" }}></i>{" "}
-                    {cars.speed}
+                  <span className=" d-flex align-items-center gap-1 section__description">
+                    <i
+                      className="ri-timer-flash-line"
+                      style={{ color: "#f9a826" }}
+                    ></i>{" "}
+                    {singleCarItem.speed}
                   </span>
                 </div>
 
-                <div className="d-flex align-items-center mt-3" style={{ columnGap: "2.8rem" }}>
-                  <span className="d-flex align-items-center gap-1 section__description">
-                    <i className="ri-map-pin-line" style={{ color: "#f9a826" }}></i>{" "}
-                    {cars.gps}
+                <div
+                  className=" d-flex align-items-center mt-3"
+                  style={{ columnGap: "2.8rem" }}
+                >
+                  <span className=" d-flex align-items-center gap-1 section__description">
+                    <i
+                      className="ri-map-pin-line"
+                      style={{ color: "#f9a826" }}
+                    ></i>{" "}
+                    {singleCarItem.gps}
                   </span>
 
-                  <span className="d-flex align-items-center gap-1 section__description">
-                    <i className="ri-wheelchair-line" style={{ color: "#f9a826" }}></i>{" "}
-                    {cars.seatType}
+                  <span className=" d-flex align-items-center gap-1 section__description">
+                    <i
+                      className="ri-wheelchair-line"
+                      style={{ color: "#f9a826" }}
+                    ></i>{" "}
+                    {singleCarItem.seatType}
                   </span>
 
-                  <span className="d-flex align-items-center gap-1 section__description">
-                    <i className="ri-building-2-line" style={{ color: "#f9a826" }}></i>{" "}
-                    {cars.brand}
+                  <span className=" d-flex align-items-center gap-1 section__description">
+                    <i
+                      className="ri-building-2-line"
+                      style={{ color: "#f9a826" }}
+                    ></i>{" "}
+                    {singleCarItem.brand}
                   </span>
                 </div>
               </div>
@@ -100,7 +141,7 @@ const CarDetails = () => {
           </Row>
         </Container>
       </section>
-    </Helmet>
+    </div>
   );
 };
 

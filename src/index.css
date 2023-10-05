@@ -34,7 +34,6 @@ h6 {
 a {
   text-decoration: none;
   color: unset;
-  /* color: white; */
 }
 
 a:hover {
@@ -47,7 +46,7 @@ ul {
 }
 
 .section__title {
-  /* color: #000d6b; */
+  color: #000d6b;
   font-weight: 600;
   font-size: 2rem;
 }

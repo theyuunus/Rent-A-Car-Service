@@ -7,12 +7,16 @@ import "../../styles/footer.css";
 
 const quickLinks = [
   {
+    path: "/",
+    display: "Home"
+  },
+  {
     path: "/about",
     display: "About",
   },
   {
     path: "/cars",
-    display: "Car Listing",
+    display: "Cars",
   },
   {
     path: "/blog",
@@ -65,7 +69,7 @@ const Footer = () => {
             <div className="logo footer__logo">
               <h1>
                 <Link to="/" className=" d-flex align-items-center gap-2">
-                  <i class="ri-car-line"></i>
+                  <i className="ri-car-line"></i>
                   <span>
                     Rent Car <br /> Service
                   </span>

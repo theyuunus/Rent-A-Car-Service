@@ -2,16 +2,18 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
-  padding: 0px 50px 0px 60px;
+  padding: 0px 40px 0px 40px;
 }
 
 .car__item {
-  width: 380px;
+  width: 400px;
   border: 1px solid #7c8a9736;
   padding: 20px;
   border-radius: 5px;
 }
-
+.car__img img{
+  height: 210px;
+}
 .car__item-info span i {
   color: #f9a826;
   font-size: 1.1rem;
@@ -22,21 +24,8 @@
   border: none;
   outline: none;
   background: #000d6b;
-  color: white;
-  padding: 8px 0px;
-}
-
-.car__img img {
-  padding: 0px 10px 0px 10px;
-  width: 280px;
-  height: 190px;
-  overflow: hidden;
-}
-
-.car__item-btn a {
-  text-decoration: none;
   color: #fff;
-  font-weight: 500;
+  padding: 8px 0px;
 }
 
 .car__item-btn a:hover {
@@ -60,23 +49,7 @@
   font-weight: 600;
 }
 
-.BottomButton{
-  width: 130px;
-  height: 45px;
-  margin-left: 85vh;
-  border-radius: 5px;
-  border: none;
-  font-size: 18px;
-  background-color: #000d6b;
-  color: #fff;
-}
-
 @media only screen and (max-width: 992px) {
-  .cars {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-  }
-
   .car__item h4 {
     font-size: 1.1rem;
     margin-bottom: 0;
@@ -103,12 +76,6 @@
 }
 
 @media only screen and (max-width: 768px) {
-  .cars {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    padding: 0px 160px 0px 160px;
-  }
-
   .car__item h4 {
     font-size: 1rem;
   }

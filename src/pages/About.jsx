@@ -14,7 +14,7 @@ const About = () => {
   return (
     <Helmet title="About">
       <CommonSection title="About Us" />
-      <AboutSection aboutClass="aboutPage" />
+      <AboutSection aboutclassName="aboutPage" />
 
       <section className="about__page-section">
         <Container>
@@ -47,7 +47,7 @@ const About = () => {
 
                 <div className=" d-flex align-items-center gap-3 mt-4">
                   <span className="fs-4">
-                    <i class="ri-phone-line"></i>
+                    <i className="ri-phone-line"></i>
                   </span>
 
                   <div>
