@@ -137,9 +137,9 @@ const Header = () => {
               <i className="ri-menu-line" onClick={toggleMenu}></i>
             </span>
 
-            <div className="navigation" ref={menuRef} onClick={toggleMenu}>
+            <di v className="navigation" ref={menuRef} onClick={toggleMenu}>
               <div className="menu">
-                {navLinks.map((item, index) => (
+                {navLinks.slice(0, 5).map((item, index) => (
                   <NavLink
                     to={item.path}
                     className={(navClass) =>
@@ -151,7 +151,7 @@ const Header = () => {
                   </NavLink>
                 ))}
               </div>
-            </div>
+            </di>
 
             <div className="nav__right">
               <div className="search__box">
@@ -160,6 +160,15 @@ const Header = () => {
                   <i className="ri-search-line"></i>
                 </span>
               </div>
+            </div>
+            <div className="header__top__right d-flex align-items-center justify-content-end gap-3">
+              <Link to="login" className=" d-flex align-items-center gap-1">
+                <i className="ri-login-circle-line"></i> Login
+              </Link>
+
+              <Link to="register" className=" d-flex align-items-center gap-1">
+                <i className="ri-user-line"></i> Register
+              </Link>
             </div>
           </div>
         </Container>
