@@ -156,17 +156,6 @@
     }
   ],
   "User": [
-    {
-      "name": "Yunus",
-      "password": "yunus9887",
-      "email": "obidxojayevbotir@gmail.com",
-      "id": 1
-    },
-    {
-      "name": "Yunus",
-      "password": "the6",
-      "email": "obidxojayevbotir@gmail.com",
-      "id": 2
-    }
+    
   ]
 }

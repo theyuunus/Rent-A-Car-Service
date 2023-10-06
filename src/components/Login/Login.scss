@@ -9,7 +9,7 @@
         background-size: cover;
     }
 
-    &-div{
+    &-div {
         display: flex;
         justify-content: center;
         gap: 30px;
@@ -69,5 +69,32 @@
                 font-size: 20px;
             }
         }
+    }
+}
+
+
+
+@media screen and (max-width: 768px) {
+
+    .login-div {
+        display: block;
+        width: 60%;
+        margin: auto;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .login-div {
+      display: block;
+      width: 80%;
+      margin: auto;
+
+      .CarSlider{
+        display: none;
+      }
+    }
+
+    .login-section-div{
+        width: 300px;
     }
 }

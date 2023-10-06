@@ -70,7 +70,7 @@ export default function Login({ handleLogin }) {
                                 </form>
                             )}
                         </div>
-                        <CarSlider images={carImages.map((image, index) => ({ id: index, src: image }))} />
+                        <CarSlider className="CarSlider" images={carImages.map((image, index) => ({ id: index, src: image }))} />
                     </div>
                 </div>
             </div>
