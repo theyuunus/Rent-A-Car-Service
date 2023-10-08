@@ -38,6 +38,17 @@
   color: #fff;
 }
 
+.header__social__link-icon {
+  color: #fff;
+  text-decoration: none;
+}
+
+.header_social_icon {
+  display: flex;
+  justify-content: end;
+  gap: 20px;
+}
+
 /* ============ header middle style =========== */
 
 .header__middle {

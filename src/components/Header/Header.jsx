@@ -36,6 +36,25 @@ const navLinks = [
   }
 ];
 
+const socialLinks = [
+  {
+    url: "#",
+    icon: "ri-facebook-line",
+  },
+  {
+    url: "#",
+    icon: "ri-instagram-line",
+  },
+  {
+    url: "#",
+    icon: "ri-linkedin-line",
+  },
+  {
+    url: "#",
+    icon: "ri-twitter-line",
+  },
+];
+
 const Header = () => {
   const menuRef = useRef(null);
 
@@ -57,14 +76,16 @@ const Header = () => {
             </Col>
 
             <Col lg="6" md="6" sm="6">
-              <div className="header__top__right d-flex align-items-center justify-content-end gap-3">
-                <Link to="login" className=" d-flex align-items-center gap-1">
-                  <i className="ri-login-circle-line"></i> Login
-                </Link>
-
-                <Link to="register" className=" d-flex align-items-center gap-1">
-                  <i className="ri-user-line"></i> Register
-                </Link>
+              <div className="header_social_icon">
+                {socialLinks.map((item, index) => (
+                  <Link
+                    to={item.url}
+                    key={index}
+                    className="header__social__link-icon"
+                  >
+                    <i className={item.icon}></i>
+                  </Link>
+                ))}
               </div>
             </Col>
           </Row>
@@ -155,7 +176,7 @@ const Header = () => {
 
             <div className="nav__right">
             </div>
-            {/* <div className="header__top__right d-flex align-items-center justify-content-end gap-3">
+            <div className="header__top__right d-flex align-items-center justify-content-end gap-3">
               <Link to="login" className=" d-flex align-items-center gap-1">
                 <i className="ri-login-circle-line"></i> Login
               </Link>
@@ -163,7 +184,7 @@ const Header = () => {
               <Link to="register" className=" d-flex align-items-center gap-1">
                 <i className="ri-user-line"></i> Register
               </Link>
-            </div> */}
+            </div>
           </div>
         </Container>
       </div>
