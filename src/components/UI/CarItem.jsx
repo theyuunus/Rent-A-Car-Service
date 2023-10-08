@@ -9,8 +9,8 @@ const CarItem = (props) => {
   const [cars, setCars] = useState([]);
   const [loading, setLoading] = useState(false);
   const [showMore, setShowMore] = useState(true);
-  const [jsonSoldOut, setJsonSoldOut] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
+  const [noMoreItems, setNoMoreItems] = useState(false);
 
   useEffect(() => {
     loadCars();
@@ -22,31 +22,30 @@ const CarItem = (props) => {
       .get(`http://localhost:8080/cars?_page=${currentPage}&_limit=6`)
       .then((response) => {
         if (response.data.length === 0) {
-          setJsonSoldOut(true);
+          setNoMoreItems(true); 
           setShowMore(false);
+          alert("Cartlar qolmadi"); 
         } else {
           const updatedCars = [...initialCars, ...response.data];
           setCars(updatedCars);
           setInitialCars(updatedCars);
           setCurrentPage(currentPage + 1);
         }
-        setLoading(false);
       })
-      .catch((error) => console.error("Ma'lumotlar olinmadi: ", error));
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   };
 
   const handleSeeMore = () => {
     loadCars();
   };
 
-  const handleSell = () => {
-    setCars(initialCars.slice(0, 6));
-    setShowMore(true);
-    setCurrentPage(2);
-  };
-
   if (!cars.length && loading) {
-    return <div>Loading...</div>;
+    return <div className="loading-indicator">Loading...</div>;
   }
 
   return (
@@ -94,20 +93,13 @@ const CarItem = (props) => {
           </div>
         ))}
       </div>
-      {!jsonSoldOut && showMore && (
+      {showMore && (
         <button
-          className="w-100 car__item-btn car__btn-see-more"
+          className="btn_see_more"
           onClick={handleSeeMore}
+          disabled={loading}
         >
           {loading ? "Loading..." : "See More"}
-        </button>
-      )}
-      {jsonSoldOut && (
-        <button
-          className="w-100 car__item-btn car__btn-sell"
-          onClick={handleSell}
-        >
-          Less
         </button>
       )}
     </Col>

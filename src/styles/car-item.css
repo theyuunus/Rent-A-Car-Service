@@ -49,6 +49,18 @@
   font-weight: 600;
 }
 
+.btn_see_more {
+  width: 200px;
+  height: 40px;
+  background-color: #000d6b;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  margin: 40px 560px auto;
+}
+
+
+
 @media only screen and (max-width: 992px) {
   .cars {
     display: grid;

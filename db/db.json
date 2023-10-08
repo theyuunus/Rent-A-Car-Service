@@ -153,7 +153,50 @@
       "seatType": "Heated seats",
       "automatic": "Automatic",
       "description": "Dolor labore lorem no accusam sit justo sadipscing labore invidunt voluptua, amet duo et gubergren vero gubergren dolor. At diam. Dolor labore lorem no accusam sit justo sadipscing labore invidunt voluptua, amet duo et gubergren vero gubergren dolor. At diam."
+    },
+    {
+      "id": 12,
+      "brand": "Ford",
+      "rating": 112,
+      "carName": "Ford Mustang",
+      "image": "12.png",
+      "model": "Model 1",
+      "price": 70,
+      "speed": "20kmpl",
+      "gps": "GPS Navigation",
+      "seatType": "Heated seats",
+      "automatic": "Automatic",
+      "description": "Dolor labore lorem no accusam sit justo sadipscing labore invidunt voluptua, amet duo et gubergren vero gubergren dolor. At diam. Dolor labore lorem no accusam sit justo sadipscing labore invidunt voluptua, amet duo et gubergren vero gubergren dolor. At diam."
+    },
+    {
+      "id": 13,
+      "brand": "Lamborghini",
+      "rating": 112,
+      "carName": "Lamborghini Sport Car",
+      "image": "13.png",
+      "model": "Model 2",
+      "price": 150,
+      "speed": "20kmpl",
+      "gps": "GPS Navigation",
+      "seatType": "Heated seats",
+      "automatic": "Automatic",
+      "description": "Dolor labore lorem no accusam sit justo sadipscing labore invidunt voluptua, amet duo et gubergren vero gubergren dolor. At diam. Dolor labore lorem no accusam sit justo sadipscing labore invidunt voluptua, amet duo et gubergren vero gubergren dolor. At diam."
+    },
+    {
+      "id": 14,
+      "brand": "Range Rover",
+      "rating": 112,
+      "carName": "Range Rover",
+      "image": "14.png",
+      "model": "Model Land Rover",
+      "price": 60,
+      "speed": "20kmpl",
+      "gps": "GPS Navigation",
+      "seatType": "Heated seats",
+      "automatic": "Automatic",
+      "description": "Dolor labore lorem no accusam sit justo sadipscing labore invidunt voluptua, amet duo et gubergren vero gubergren dolor. At diam. Dolor labore lorem no accusam sit justo sadipscing labore invidunt voluptua, amet duo et gubergren vero gubergren dolor. At diam."
     }
+
   ],
   "User": [
     

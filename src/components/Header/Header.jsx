@@ -154,14 +154,8 @@ const Header = () => {
             </di>
 
             <div className="nav__right">
-              <div className="search__box">
-                <input type="text" placeholder="Search" />
-                <span>
-                  <i className="ri-search-line"></i>
-                </span>
-              </div>
             </div>
-            <div className="header__top__right d-flex align-items-center justify-content-end gap-3">
+            {/* <div className="header__top__right d-flex align-items-center justify-content-end gap-3">
               <Link to="login" className=" d-flex align-items-center gap-1">
                 <i className="ri-login-circle-line"></i> Login
               </Link>
@@ -169,7 +163,7 @@ const Header = () => {
               <Link to="register" className=" d-flex align-items-center gap-1">
                 <i className="ri-user-line"></i> Register
               </Link>
-            </div>
+            </div> */}
           </div>
         </Container>
       </div>
