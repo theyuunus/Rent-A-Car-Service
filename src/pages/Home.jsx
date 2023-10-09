@@ -76,7 +76,7 @@ const Home = () => {
             </Col>
 
             <div className="cars">
-              {cars.slice(0, 3).map((car) => (
+              {cars.slice(4, 7).map((car) => (
                 <div className="car__item" key={car.id}>
                   <div className="car__img">
                     <img className="w-100" src={process.env.PUBLIC_URL + "/images/" + car.image} alt="error" />

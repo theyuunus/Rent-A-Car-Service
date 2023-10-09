@@ -22,9 +22,9 @@ const CarItem = (props) => {
       .get(`http://localhost:8080/cars?_page=${currentPage}&_limit=6`)
       .then((response) => {
         if (response.data.length === 0) {
-          setNoMoreItems(true); 
+          setNoMoreItems(true);
           setShowMore(false);
-          alert("Cartlar qolmadi"); 
+          alert("Cartlar qolmadi");
         } else {
           const updatedCars = [...initialCars, ...response.data];
           setCars(updatedCars);
@@ -94,13 +94,15 @@ const CarItem = (props) => {
         ))}
       </div>
       {showMore && (
-        <button
-          className="btn_see_more"
-          onClick={handleSeeMore}
-          disabled={loading}
-        >
-          {loading ? "Loading..." : "See More"}
-        </button>
+        <div className="btn_see_more_div">
+          <button
+            className="btn_see_more"
+            onClick={handleSeeMore}
+            disabled={loading}
+          >
+            {loading ? "Loading..." : "See More"}
+          </button>
+        </div>
       )}
     </Col>
   );

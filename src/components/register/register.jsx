@@ -73,7 +73,7 @@ export default function Register({ handleRegister }) {
                     />
                   </div>
                   <div className="Register-section-div-btn">
-                    <button type="submit">Enter</button>
+                    <button type="submit" >Enter</button>
                   </div>
                 </form>
               </div>

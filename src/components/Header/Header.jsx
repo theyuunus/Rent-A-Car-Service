@@ -158,7 +158,7 @@ const Header = () => {
               <i className="ri-menu-line" onClick={toggleMenu}></i>
             </span>
 
-            <di v className="navigation" ref={menuRef} onClick={toggleMenu}>
+            <div className="navigation" ref={menuRef} onClick={toggleMenu}>
               <div className="menu">
                 {navLinks.slice(0, 5).map((item, index) => (
                   <NavLink
@@ -172,7 +172,7 @@ const Header = () => {
                   </NavLink>
                 ))}
               </div>
-            </di>
+            </div>
 
             <div className="nav__right">
             </div>
