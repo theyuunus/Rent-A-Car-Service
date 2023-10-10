@@ -54,7 +54,7 @@ export default function Login({ handleLogin }) {
                             {currentUser ? (
                                 <div>
                                     <h2>Tizimga xush kelibsiz, {currentUser.name}!</h2>
-                                  <Link to={"/"}><button onClick={() => setCurrentUser(null)}>Chiqish</button></Link>
+                                    <Link to={"/"}><button onClick={() => setCurrentUser(null)}>Chiqish</button></Link>
                                 </div>
                             ) : (
                                 <form onSubmit={handleSubmit}>
@@ -70,7 +70,7 @@ export default function Login({ handleLogin }) {
                                 </form>
                             )}
                         </div>
-                        <CarSlider className="CarSlider" images={carImages.map((image, index) => ({ id: index, src: image }))} />
+                            <CarSlider images={carImages.map((image, index) => ({ id: index, src: image }))} />
                     </div>
                 </div>
             </div>

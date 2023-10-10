@@ -26,11 +26,11 @@
         backdrop-filter: blur(5px);
         border-right: 2px white solid;
 
-        i {
-            width: 50px;
-            height: 50px;
-            color: #000c6bd0;
-        }
+        // i {
+        //     width: 50px;
+        //     height: 50px;
+        //     color: #000c6bd0;
+        // }
 
         h1 {
             font-size: 50px;
@@ -80,6 +80,10 @@
         display: block;
         width: 60%;
         margin: auto;
+
+        .CarSlider{
+            display: none;
+        }
     }
 }
 
@@ -88,10 +92,6 @@
       display: block;
       width: 80%;
       margin: auto;
-
-      .CarSlider{
-        display: none;
-      }
     }
 
     .login-section-div{

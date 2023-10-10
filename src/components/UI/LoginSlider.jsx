@@ -20,7 +20,7 @@ const CarSlider = ({ images }) => {
   };
 
   const imageStyle = {
-    width: "100%", // Ensure the image scales responsively
+    width: "100%",
   };
 
   return (
@@ -28,7 +28,7 @@ const CarSlider = ({ images }) => {
       <Slider {...settings}>
         {images.map((image, index) => (
           <div key={index}>
-            <img style={imageStyle} src={image.src} alt={`Image ${index}`} />
+            <img className='CarSlider' style={imageStyle} src={image.src} alt={`Image ${index}`} />
           </div>
         ))}
       </Slider>

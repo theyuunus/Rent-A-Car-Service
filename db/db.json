@@ -252,9 +252,19 @@
       "automatic": "Automatic",
       "description": "Dolor labore lorem no accusam sit justo sadipscing labore invidunt voluptua, amet duo et gubergren vero gubergren dolor. At diam. Dolor labore lorem no accusam sit justo sadipscing labore invidunt voluptua, amet duo et gubergren vero gubergren dolor. At diam."
     }
-    
   ],
   "User": [
-
+    {
+      "name": "Khaetbek",
+      "password": "1234",
+      "email": "khaetbek@internet.ru",
+      "id": 1
+    },
+    {
+      "name": "Yunus",
+      "password": "tgw",
+      "email": "obidxojayevbotir@gmail.com",
+      "id": 2
+    }
   ]
 }

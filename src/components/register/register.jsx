@@ -39,7 +39,7 @@ export default function Register({ handleRegister }) {
 
   return (
     <React.Fragment>
-      <Helmet>
+      <Helmet title="Register">
         <div className="Register">
           <div className="Register-back-img">
             <div className="Register-div">
