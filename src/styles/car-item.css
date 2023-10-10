@@ -51,6 +51,18 @@
   font-weight: 600;
 }
 
+.car-search-input input{
+  width: 230px;
+  height: 40px;
+  margin-left: 130px;
+  margin-bottom: 30px;
+}
+
+.car_filter_not_found{
+  text-align: center;
+  font-size: 30px;
+}
+
 .btn_see_more_div {
   width: 48%;
   margin: 30px auto;

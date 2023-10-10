@@ -254,17 +254,6 @@
     }
   ],
   "User": [
-    {
-      "name": "Khaetbek",
-      "password": "1234",
-      "email": "khaetbek@internet.ru",
-      "id": 1
-    },
-    {
-      "name": "Yunus",
-      "password": "tgw",
-      "email": "obidxojayevbotir@gmail.com",
-      "id": 2
-    }
+    
   ]
 }
