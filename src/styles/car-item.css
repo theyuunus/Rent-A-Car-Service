@@ -51,14 +51,14 @@
   font-weight: 600;
 }
 
-.car-search-input input{
+.car-search-input input {
   width: 230px;
   height: 40px;
   margin-left: 130px;
   margin-bottom: 30px;
 }
 
-.car_filter_not_found{
+.car_filter_not_found {
   text-align: center;
   font-size: 30px;
 }
@@ -84,6 +84,12 @@
     grid-template-columns: repeat(2, 1fr);
     padding-left: 70px;
     margin: auto;
+  }
+  .car-search-input {
+    margin-left: 70px;
+  }
+  .car-search-input input {
+    margin-left: 0px;
   }
   .btn_see_more_div {
     padding-left: 380px;
@@ -120,6 +126,9 @@
     grid-template-columns: repeat(1, 1fr);
     padding-left: 160px;
   }
+  .car-search-input {
+    padding-left: 30px;
+  }
   .btn_see_more_div {
     padding-left: 265px;
     padding-top: 30px;
@@ -149,22 +158,22 @@
   .cars {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
-    padding: 0 10px; 
+    padding: 0 10px;
   }
-  
+
   .btn_see_more_div {
     padding: 10px 10px 30px;
   }
-  
+
   .car__item {
-    width: 300px; 
-    margin: 10px 0; 
+    width: 300px;
+    margin: 10px 0;
     border: 1px solid #7c8a9736;
     border-radius: 5px;
   }
-  
+
   .car__img img {
-    width: 50%; 
-    height: auto; 
+    width: 50%;
+    height: auto;
   }
 }
