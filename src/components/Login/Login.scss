@@ -17,6 +17,25 @@
         padding-top: 20vh;
     }
 
+    &-current{
+            
+        h2{
+            padding-top: 150px;
+            font-size: 50px;
+        }
+
+        button{
+            width: 160px;
+            height: 40px;
+            margin-top: 30px;
+            background-color: #000c6bd0;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 20px;
+        }
+    }
+
     &-section-div {
         width: 70vh;
         height: 80vh;

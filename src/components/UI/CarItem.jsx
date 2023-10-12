@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import "../../styles/car-item.css";
 import axios from "axios";
 
-const CarItem = (props) => {
+const CarItem = () => {
   const [initialCars, setInitialCars] = useState([]);
   const [cars, setCars] = useState([]);
   const [loading, setLoading] = useState(false);

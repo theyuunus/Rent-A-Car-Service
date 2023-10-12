@@ -52,7 +52,7 @@ export default function Login({ handleLogin }) {
                     <div className="login-div">
                         <div className="login-section-div">
                             {currentUser ? (
-                                <div>
+                                <div className='login-current'>
                                     <h2>Tizimga xush kelibsiz, {currentUser.name}!</h2>
                                     <Link to={"/"}><button onClick={() => setCurrentUser(null)}>Chiqish</button></Link>
                                 </div>
