@@ -95,3 +95,16 @@
         width: 300px;
     }
 }
+
+
+@media screen and (max-width: 576px) {
+    .Register-div {
+      display: block;
+      width: 55%;
+      margin: auto;
+    }
+
+    .Register-section-div{
+        width: 300px;
+    }
+}
