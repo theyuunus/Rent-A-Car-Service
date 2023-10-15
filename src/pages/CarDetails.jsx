@@ -10,16 +10,22 @@ const CarDetails = () => {
   const [singleCarItem, setSingleCarItem] = useState(null);
 
   useEffect(() => {
-    fetch(`http://localhost:8080/cars?carName=${slug}`)
-      .then((response) => response.json())
-      .then((data) => {
+    const fetchCarDetails = async () => {
+      try {
+        const response = await fetch(`http://localhost:8080/cars?carName=${slug}`);
+        const data = await response.json();
+
         if (data && data.length > 0) {
           setSingleCarItem(data[0]);
         } else {
           setSingleCarItem(null);
         }
-      })
-      .catch((error) => console.error("Ma'lumotlar olinmadi: ", error));
+      } catch (error) {
+        console.error("Ma'lumotlar olinmadi:", error);
+      }
+    };
+
+    fetchCarDetails();
   }, [slug]);
 
   if (!singleCarItem) {
@@ -32,10 +38,14 @@ const CarDetails = () => {
       <section>
         <Container>
           <Row>
-            <Col lg="6" key={singleCarItem.id}>
+            <Col lg="6">
               <img
                 className="w-100"
-                src={process.env.PUBLIC_URL + "/images/" + singleCarItem.image}
+                src={
+                  singleCarItem.image.startsWith("i")
+                    ? `${process.env.PUBLIC_URL}/images/${singleCarItem.image}`
+                    : singleCarItem.image
+                }
                 alt={singleCarItem.carName}
               />
             </Col>
@@ -44,12 +54,12 @@ const CarDetails = () => {
               <div className="car__info">
                 <h2 className="section__title">{singleCarItem.carName}</h2>
 
-                <div className=" d-flex align-items-center gap-5 mb-4 mt-3">
+                <div className="d-flex align-items-center gap-5 mb-4 mt-3">
                   <h6 className="rent__price fw-bold fs-4">
                     ${singleCarItem.price}.00 / Day
                   </h6>
 
-                  <span className=" d-flex align-items-center gap-2">
+                  <span className="d-flex align-items-center gap-2">
                     <span style={{ color: "#f9a826" }}>
                       <i className="ri-star-s-fill"></i>
                       <i className="ri-star-s-fill"></i>
@@ -65,61 +75,31 @@ const CarDetails = () => {
                   {singleCarItem.description}
                 </p>
 
-                <div
-                  className=" d-flex align-items-center mt-3"
-                  style={{ columnGap: "4rem" }}
-                >
-                  <span className=" d-flex align-items-center gap-1 section__description">
-                    <i
-                      className="ri-roadster-line"
-                      style={{ color: "#f9a826" }}
-                    ></i>{" "}
-                    {singleCarItem.model}
+                <div className="d-flex align-items-center mt-3" style={{ columnGap: "4rem" }}>
+                  <span className="d-flex align-items-center gap-1 section__description">
+                    <i className="ri-roadster-line" style={{ color: "#f9a826" }}></i> {singleCarItem.model}
                   </span>
 
-                  <span className=" d-flex align-items-center gap-1 section__description">
-                    <i
-                      className="ri-settings-2-line"
-                      style={{ color: "#f9a826" }}
-                    ></i>{" "}
-                    {singleCarItem.automatic}
+                  <span className="d-flex align-items-center gap-1 section__description">
+                    <i className="ri-settings-2-line" style={{ color: "#f9a826" }}></i> {singleCarItem.automatic}
                   </span>
 
-                  <span className=" d-flex align-items-center gap-1 section__description">
-                    <i
-                      className="ri-timer-flash-line"
-                      style={{ color: "#f9a826" }}
-                    ></i>{" "}
-                    {singleCarItem.speed}
+                  <span className="d-flex align-items-center gap-1 section__description">
+                    <i className="ri-timer-flash-line" style={{ color: "#f9a826" }}></i> {singleCarItem.speed}
                   </span>
                 </div>
 
-                <div
-                  className=" d-flex align-items-center mt-3"
-                  style={{ columnGap: "2.8rem" }}
-                >
-                  <span className=" d-flex align-items-center gap-1 section__description">
-                    <i
-                      className="ri-map-pin-line"
-                      style={{ color: "#f9a826" }}
-                    ></i>{" "}
-                    {singleCarItem.gps}
+                <div className="d-flex align-items-center mt-3" style={{ columnGap: "2.8rem" }}>
+                  <span className="d-flex align-items-center gap-1 section__description">
+                    <i className="ri-map-pin-line" style={{ color: "#f9a826" }}></i> {singleCarItem.gps}
                   </span>
 
-                  <span className=" d-flex align-items-center gap-1 section__description">
-                    <i
-                      className="ri-wheelchair-line"
-                      style={{ color: "#f9a826" }}
-                    ></i>{" "}
-                    {singleCarItem.seatType}
+                  <span className="d-flex align-items-center gap-1 section__description">
+                    <i className="ri-wheelchair-line" style={{ color: "#f9a826" }}></i> {singleCarItem.seatType}
                   </span>
 
-                  <span className=" d-flex align-items-center gap-1 section__description">
-                    <i
-                      className="ri-building-2-line"
-                      style={{ color: "#f9a826" }}
-                    ></i>{" "}
-                    {singleCarItem.brand}
+                  <span className="d-flex align-items-center gap-1 section__description">
+                    <i className="ri-building-2-line" style={{ color: "#f9a826" }}></i> {singleCarItem.brand}
                   </span>
                 </div>
               </div>
@@ -127,14 +107,14 @@ const CarDetails = () => {
 
             <Col lg="7" className="mt-5">
               <div className="booking-info mt-5">
-                <h5 className="mb-4 fw-bold ">Booking Information</h5>
+                <h5 className="mb-4 fw-bold">Booking Information</h5>
                 <BookingForm />
               </div>
             </Col>
 
             <Col lg="5" className="mt-5">
               <div className="payment__info mt-5">
-                <h5 className="mb-4 fw-bold ">Payment Information</h5>
+                <h5 className="mb-4 fw-bold">Payment Information</h5>
                 <PaymentMethod />
               </div>
             </Col>
