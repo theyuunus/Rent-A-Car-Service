@@ -253,18 +253,5 @@
       "description": "Dolor labore lorem no accusam sit justo sadipscing labore invidunt voluptua, amet duo et gubergren vero gubergren dolor. At diam. Dolor labore lorem no accusam sit justo sadipscing labore invidunt voluptua, amet duo et gubergren vero gubergren dolor. At diam."
     }
   ],
-  "User": [
-    {
-      "name": "Yunus",
-      "password": "1",
-      "email": "obidxojayevbotir@gmail.com",
-      "id": 1
-    },
-    {
-      "name": "Botir Obidxojayev",
-      "password": "1111",
-      "email": "qwerty@gmail.com",
-      "id": 2
-    }
-  ]
+  "User": []
 }
