@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import "./admin.scss"
-import Helmet from "../Helmet/Helmet"
+import "./admin.scss";
+import Helmet from "../Helmet/Helmet";
 
 function AdminPage() {
+    const [editCarId, setEditCarId] = useState(null);
+    const [isEditMode, setIsEditMode] = useState(false);
+    const [carDataArray, setCarDataArray] = useState([]);
     const [adminEmailCode, setAdminEmailCode] = useState('');
     const [adminPasswordCode, setAdminPasswordCode] = useState('');
     const [carData, setCarData] = useState({
@@ -17,12 +20,67 @@ function AdminPage() {
         seatType: '',
         automatic: '',
         description: '',
+        rating: '',
     });
-
     const [isAdmin, setIsAdmin] = useState(false);
 
+    useEffect(() => {
+        axios.get('http://localhost:8080/cars')
+            .then((response) => {
+                setCarDataArray(response.data);
+            })
+            .catch((error) => {
+                console.error('Error fetching car data:', error);
+            });
+    }, []);
+
+    const handleEditCar = (carId) => {
+        const carToEdit = carDataArray.find(car => car.id === carId);
+        setEditCarId(carId);
+        setIsEditMode(true);
+        setCarData({ ...carToEdit });
+    };
+
+    const clearInputFields = () => {
+        setEditCarId(null);
+        setIsEditMode(false);
+        setCarData({
+            brand: '',
+            carName: '',
+            image: null,
+            model: '',
+            price: '',
+            speed: '',
+            gps: '',
+            seatType: '',
+            automatic: '',
+            description: '',
+            rating: '',
+        });
+    };
+
+    const handleUpdateCar = () => {
+        axios.put(`http://localhost:8080/cars/${editCarId}`, carData)
+            .then((response) => {
+                clearInputFields();
+            })
+            .catch((error) => {
+                console.error('Error updating car data:', error);
+            });
+    };
+
+    const handleDeleteCar = (carId) => {
+        axios.delete(`http://localhost:8080/cars/${carId}`)
+            .then((response) => {
+                clearInputFields();
+            })
+            .catch((error) => {
+                console.error('Error deleting car data:', error);
+            });
+    };
+
     const handleAdminCodeSubmit = () => {
-        if (adminEmailCode === 'AdminPanelEmail' && adminPasswordCode === 'AdminPanelPassword') {
+        if (adminEmailCode === 'p' && adminPasswordCode === 'p') {
             setIsAdmin(true);
         } else {
             alert('Invalid admin code. Please try again.');
@@ -61,7 +119,6 @@ function AdminPage() {
                     brand: '',
                     carName: '',
                     image: null,
-                    rating: '',
                     model: '',
                     price: '',
                     speed: '',
@@ -69,6 +126,7 @@ function AdminPage() {
                     seatType: '',
                     automatic: '',
                     description: '',
+                    rating: '',
                 });
             })
             .catch((error) => {
@@ -181,9 +239,33 @@ function AdminPage() {
                             onChange={handleChange}
                         />
                         <br />
-                        <button type="button" onClick={handleSubmit}>
-                            Add Car
-                        </button>
+                        {isEditMode ? (
+                            <div>
+                                <button type="button" onClick={handleUpdateCar}>
+                                    Update Car
+                                </button>
+                            </div>
+                        ) : (
+                            <div>
+                                <button type="button" onClick={handleSubmit}>
+                                    Add Car
+                                </button>
+                            </div>
+                        )}
+
+                        <ul>
+                            {carDataArray.map((car) => (
+                                <li key={car.id}>
+                                    {car.brand} - {car.carName}
+                                    <button type="button" onClick={() => handleEditCar(car.id)}>
+                                        Edit
+                                    </button>
+                                    <button type="button" onClick={() => handleDeleteCar(car.id)}>
+                                        Delete
+                                    </button>
+                                </li>
+                            ))}
+                        </ul>
                     </form>
                 ) : (
                     <div className='Admin-Password'>
@@ -208,6 +290,7 @@ function AdminPage() {
                         </button>
                     </div>
                 )}
+
             </Helmet>
         </React.Fragment>
     );
