@@ -41,12 +41,10 @@ const CarDetails = () => {
             <Col lg="6">
               <img
                 className="w-100"
-                src={
-                  singleCarItem.image.startsWith("i")
-                    ? `${process.env.PUBLIC_URL}/images/${singleCarItem.image}`
-                    : singleCarItem.image
-                }
-                alt={singleCarItem.carName}
+                src={singleCarItem.image.startsWith(singleCarItem.id)
+                  ? process.env.PUBLIC_URL + "/images/" + singleCarItem.image
+                  : singleCarItem.image}
+                alt="error"
               />
             </Col>
 

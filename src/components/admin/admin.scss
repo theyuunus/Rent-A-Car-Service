@@ -1,0 +1,53 @@
+h2 {
+    text-align: center;
+    padding-top: 30px;
+}
+
+.Admin-Password {
+    text-align: center;
+
+    &-Input {
+        width: 200px;
+        height: 35px;
+        font-size: 17px;
+        outline: none;
+        margin-left: 10px;
+    }
+
+    button{
+        width: 110px;
+        height: 38px;
+        border: none;
+        border-radius: 5px;
+        background-color: #000d6b;
+        color: #fff;
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+}
+
+form{
+    display: block;
+    justify-content: space-between;
+    text-align: center;
+
+    label{
+        font-size: 20px;
+        padding-right: 50px;
+    }
+
+    input{
+        width: 200px;
+    }
+
+    button{
+        width: 140px;
+        height: 38px;
+        border: none;
+        border-radius: 5px;
+        background-color: #000d6b;
+        color: #fff;
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+}
