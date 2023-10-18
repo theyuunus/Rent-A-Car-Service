@@ -1,8 +1,9 @@
-import React, { useRef } from "react";
-
+import React, { useEffect, useRef, useState, } from "react";
 import { Container, Row, Col } from "reactstrap";
 import { Link, NavLink } from "react-router-dom";
 import "../../styles/header.css";
+
+import User from "../../images/user.png";
 
 const navLinks = [
   {
@@ -17,7 +18,6 @@ const navLinks = [
     path: "/cars",
     display: "Cars",
   },
-
   {
     path: "/blogs",
     display: "Blog",
@@ -57,8 +57,31 @@ const socialLinks = [
 
 const Header = () => {
   const menuRef = useRef(null);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [currentUser, setCurrentUser] = useState(null);
 
   const toggleMenu = () => menuRef.current.classList.toggle("menu__active");
+
+  const checkLoggedInUser = () => {
+    if (localStorage.getItem('currentUser')) {
+      const user = JSON.parse(localStorage.getItem('currentUser'));
+      setCurrentUser(user);
+      setIsLoggedIn(true);
+    } else {
+      setIsLoggedIn(false);
+      setCurrentUser(null);
+    }
+  };
+  useEffect(() => {
+    checkLoggedInUser();
+  }, []);
+
+  const handleLogout = () => {
+    setCurrentUser(null);
+    setIsLoggedIn(false);
+    localStorage.removeItem('currentUser');
+    window.location.reload()
+  };
 
   return (
     <header className="header">
@@ -150,7 +173,6 @@ const Header = () => {
       </div>
 
       {/* ========== main navigation =========== */}
-
       <div className="main__navbar">
         <Container>
           <div className="navigation__wrapper d-flex align-items-center justify-content-between">
@@ -177,13 +199,23 @@ const Header = () => {
             <div className="nav__right">
             </div>
             <div className="header__top__right d-flex align-items-center justify-content-end gap-3">
-              <Link to="login" className=" d-flex align-items-center gap-1">
-                <i className="ri-login-circle-line"></i> Login
-              </Link>
-
-              <Link to="register" className=" d-flex align-items-center gap-1">
-                <i className="ri-user-line"></i> Register
-              </Link>
+              {isLoggedIn ? (
+                <React.Fragment>
+                  <Link to="/user" className="d-flex align-items-center gap-1">
+                    <img src={User} alt="User" />
+                  </Link>
+                  <button className="logOut-btn" onClick={handleLogout}><Link to={"/"}>Log Out</Link></button>
+                </React.Fragment>
+              ) : (
+                <React.Fragment>
+                  <Link to="login" className="d-flex align-items-center gap-1">
+                    <i className="ri-login-circle-line"></i> Login
+                  </Link>
+                  <Link to="register" className="d-flex align-items-center gap-1">
+                    <i className="ri-user-line"></i> Register
+                  </Link>
+                </React.Fragment>
+              )}
             </div>
           </div>
         </Container>
@@ -192,4 +224,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default Header

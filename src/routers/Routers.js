@@ -11,6 +11,7 @@ import Contact from "../pages/Contact";
 import Login from "../pages/Login";
 import Register from "../pages/register";
 import Admin from "../components/admin/admin"
+import User from "../pages/User"
 
 const Routers = () => {
   return (
@@ -26,6 +27,7 @@ const Routers = () => {
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/admin" element={<Admin />} />
+      <Route path="/user" element={<User />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );

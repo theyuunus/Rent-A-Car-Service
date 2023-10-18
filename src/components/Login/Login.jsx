@@ -9,13 +9,14 @@ import img02 from "../../images/Rolls Royce 1.png";
 import img03 from "../../images/audi 1.png";
 import img04 from "../../images/lambo 1.png";
 import img05 from "../../images/mers 1.png";
+import { Link } from 'react-router-dom';
 
 export default function Login({ handleLogin }) {
     const [formData, setFormData] = useState({ name: '', password: '' });
     const [currentUser, setCurrentUser] = useState(null);
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [rentedCars, setRentedCars] = useState([]);
-    
+
     useEffect(() => {
         if (localStorage.getItem('currentUser')) {
             const user = JSON.parse(localStorage.getItem('currentUser'));
@@ -62,6 +63,10 @@ export default function Login({ handleLogin }) {
         setRentedCars([]);
     };
 
+    const handleHomeButtonClick = () => {
+        window.location.reload();
+    };
+
     return (
         <React.Fragment>
             <Helmet title="Login" />
@@ -70,11 +75,10 @@ export default function Login({ handleLogin }) {
                     <div className="login-div">
                         <div className="login-section-div">
                             {isLoggedIn ? (
-                                <div className='login-current'>
+                                <div onClick={handleHomeButtonClick} className='login-current'>
                                     <h2>Tizimga xush kelibsiz, {currentUser.name}!</h2>
-                                    <button onClick={handleLogout}>Log Out</button>
-                                    <div className="rented-cars">
-                                    </div>
+                                    <h4>Sizda User Cabinet Bor</h4>
+                                    <Link to={"/"}><button>Home</button></Link>
                                 </div>
                             ) : (
                                 <form onSubmit={handleSubmit}>

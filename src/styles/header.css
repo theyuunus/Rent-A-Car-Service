@@ -172,6 +172,22 @@
   color: #f9a826;
 }
 
+.logOut-btn{
+  width: 65px;
+  height: 30px;
+  border: none;
+  border-radius: 5px;
+}
+
+.logOut-btn a{
+  color: #020a4de9;
+  font-weight: 600;
+}
+
+.logOut-btn a:hover{
+  color: #020a4de9;
+}
+
 @media only screen and (max-width: 768px) {
   .header__top,
   .header__middle,
