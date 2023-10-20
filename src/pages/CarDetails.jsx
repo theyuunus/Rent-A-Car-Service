@@ -3,17 +3,20 @@ import { Container, Row, Col } from "reactstrap";
 import Helmet from "../components/Helmet/Helmet";
 import { useParams } from "react-router-dom";
 import BookingForm from "../components/UI/BookingForm";
-import PaymentMethod from "../components/UI/PaymentMethod";
+import masterCard from "../assets/all-images/master-card.jpg";
+import paypal from "../assets/all-images/paypal.jpg";
+import "../styles/payment-method.css";
+import axios from 'axios';
 
-const CarDetails = () => {
+const CarDetails = ({ user, onReserve }) => {
   const { slug } = useParams();
   const [singleCarItem, setSingleCarItem] = useState(null);
 
   useEffect(() => {
     const fetchCarDetails = async () => {
       try {
-        const response = await fetch(`http://localhost:8080/cars?carName=${slug}`);
-        const data = await response.json();
+        const response = await axios.get(`http://localhost:8080/cars?carName=${slug}`);
+        const data = response.data;
 
         if (data && data.length > 0) {
           setSingleCarItem(data[0]);
@@ -31,6 +34,18 @@ const CarDetails = () => {
   if (!singleCarItem) {
     return <div>Ma'lumotlar topilmadi</div>;
   }
+
+  const reserveCar = async () => {
+    const carName = singleCarItem.carName;
+    const brand = singleCarItem.brand;
+
+    try {
+      await axios.post('http://localhost:8080/bougth', { carName, brand, userId: user.id });
+      onReserve(carName, brand); 
+    } catch (error) {
+      console.error('Reserve error:', error);
+    }
+  };
 
   return (
     <div>
@@ -113,7 +128,34 @@ const CarDetails = () => {
             <Col lg="5" className="mt-5">
               <div className="payment__info mt-5">
                 <h5 className="mb-4 fw-bold">Payment Information</h5>
-                <PaymentMethod />
+                <div className="payment">
+                  <label htmlFor="" className="d-flex align-items-center gap-2">
+                    <input type="radio" /> Direct Bank Transfer
+                  </label>
+                </div>
+
+                <div className="payment mt-3">
+                  <label htmlFor="" className="d-flex align-items-center gap-2">
+                    <input type="radio" /> Cheque Payment
+                  </label>
+                </div>
+
+                <div className="payment mt-3 d-flex align-items-center justify-content-between">
+                  <label htmlFor="" className="d-flex align-items-center gap-2">
+                    <input type="radio" /> Master Card
+                  </label>
+                  <img src={masterCard} alt="" />
+                </div>
+
+                <div className="payment mt-3 d-flex align-items-center justify-content-between">
+                  <label htmlFor="" className="d-flex align-items-center gap-2">
+                    <input type="radio" /> Paypal
+                  </label>
+                  <img src={paypal} alt="" />
+                </div>
+                <div className="payment text-end mt-5">
+                  <button onClick={reserveCar}>Reserve Now</button>
+                </div>
               </div>
             </Col>
           </Row>

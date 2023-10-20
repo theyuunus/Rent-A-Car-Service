@@ -5,6 +5,7 @@ import Footer from "../Footer/Footer";
 import Routers from "../../routers/Routers";
 
 const Layout = () => {
+  console.clear()
   return (
     <Fragment>
       <Header />
