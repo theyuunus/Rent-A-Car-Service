@@ -1,49 +1,58 @@
 import React, { useEffect, useState } from 'react';
 import './User.scss';
 import axios from 'axios';
+import { Container } from 'reactstrap';
 
 export default function User({ user }) {
-  const [userState, setUserState] = useState({
-    name: '',
-    email: '',
-    password: '',
-  });
+  const [userObject, setUserObject] = useState(null);
   const [selectedCar, setSelectedCar] = useState(null);
-  const [userObject, setUserObject] = useState({});
 
   useEffect(() => {
-    const fetchOtherUserData = async (userId) => {
+    const fetchUserData = async (userId) => {
       try {
         const response = await axios.get(`http://localhost:8080/user/${userId}`);
-        setUserObject(response.data); 
+        setUserObject(response.data);
       } catch (error) {
-        console.error('Xato', error);
+        console.error('Error:', error);
       }
     };
 
     if (user) {
-      fetchOtherUserData(user.id);
+      fetchUserData(user.id);
     } else {
-      setUserObject(JSON.parse(localStorage.getItem("currentUser")));
+      const currentUser = localStorage.getItem("currentUser");
+      if (currentUser) {
+        setUserObject(JSON.parse(currentUser));
+      }
     }
-  }, [user]);
 
-  const showCarDetails = (carName, brand) => {
-    setSelectedCar({ carName, brand });
-  };
+    const selectedCarData = JSON.parse(localStorage.getItem("selectedCar"));
+    setSelectedCar(selectedCarData);
+  }, [user]);
 
   return (
     <div className="user-container">
       <div>
-        <h2>Xush kelibsiz, {user ? user.name : 'Guest'}!</h2>
+        <h2>Xush kelibsiz, {userObject ? userObject.name : 'Guest'}!</h2>
         <div>
-          <p>Name: {userObject.name}</p>
-          <p>Email: {userObject.email}</p>
-          <p>Password: {userObject.password}</p>
+          <h2>Name: {userObject ? userObject.name : 'N/A'}</h2>
+          <h2>Email: {userObject ? userObject.email : 'N/A'}</h2>
+          <h2>Password: {userObject ? userObject.password : 'N/A'}</h2>
         </div>
-        <div>
-          <h3>Mashina Tarixi:</h3>
-        </div>
+      </div>
+
+      <div>
+        {selectedCar ? (
+          <div>
+            <h1>Car History:</h1>
+            <Container>
+              <h3>Car Name: {selectedCar.carName}</h3>
+              <h3>Brand: {selectedCar.brand}</h3>
+            </Container>
+          </div>
+        ) : (
+          <p>No car selected</p>
+        )}
       </div>
     </div>
   );

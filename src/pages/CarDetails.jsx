@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from "react";
-import { Container, Row, Col } from "reactstrap";
-import Helmet from "../components/Helmet/Helmet";
-import { useParams } from "react-router-dom";
-import BookingForm from "../components/UI/BookingForm";
-import masterCard from "../assets/all-images/master-card.jpg";
-import paypal from "../assets/all-images/paypal.jpg";
-import "../styles/payment-method.css";
+import React, { useEffect, useState } from 'react';
+import { Container, Row, Col } from 'reactstrap';
+import Helmet from '../components/Helmet/Helmet';
+import { useParams } from 'react-router-dom';
+import BookingForm from '../components/UI/BookingForm';
+import masterCard from '../assets/all-images/master-card.jpg';
+import paypal from '../assets/all-images/paypal.jpg';
 import axios from 'axios';
 
-const CarDetails = ({ user, onReserve }) => {
+const CarDetails = () => {
   const { slug } = useParams();
   const [singleCarItem, setSingleCarItem] = useState(null);
+  const [selectedCar, setSelectedCar] = useState(null);
 
   useEffect(() => {
     const fetchCarDetails = async () => {
@@ -26,26 +26,30 @@ const CarDetails = ({ user, onReserve }) => {
       } catch (error) {
         console.error("Ma'lumotlar olinmadi:", error);
       }
+
     };
 
     fetchCarDetails();
   }, [slug]);
 
+  const handleReserveNow = () => {
+    if (singleCarItem) {
+      const reservedCar = {
+        carName: singleCarItem.carName,
+        brand: singleCarItem.brand,
+      };
+
+      localStorage.setItem('selectedCar', JSON.stringify(reservedCar));
+
+      console.log("Moshina nomi:", singleCarItem.carName);
+      console.log("Brand:", singleCarItem.brand);
+      setSelectedCar(reservedCar);
+    }
+  };
+
   if (!singleCarItem) {
     return <div>Ma'lumotlar topilmadi</div>;
   }
-
-  const reserveCar = async () => {
-    const carName = singleCarItem.carName;
-    const brand = singleCarItem.brand;
-
-    try {
-      await axios.post('http://localhost:8080/bougth', { carName, brand, userId: user.id });
-      onReserve(carName, brand); 
-    } catch (error) {
-      console.error('Reserve error:', error);
-    }
-  };
 
   return (
     <div>
@@ -130,31 +134,31 @@ const CarDetails = ({ user, onReserve }) => {
                 <h5 className="mb-4 fw-bold">Payment Information</h5>
                 <div className="payment">
                   <label htmlFor="" className="d-flex align-items-center gap-2">
-                    <input type="radio" /> Direct Bank Transfer
+                    <input type="radio" name="paymentMethod" value="Direct Bank Transfer" /> Direct Bank Transfer
                   </label>
                 </div>
 
                 <div className="payment mt-3">
                   <label htmlFor="" className="d-flex align-items-center gap-2">
-                    <input type="radio" /> Cheque Payment
+                    <input type="radio" name="paymentMethod" value="Cheque Payment" /> Cheque Payment
                   </label>
                 </div>
 
                 <div className="payment mt-3 d-flex align-items-center justify-content-between">
                   <label htmlFor="" className="d-flex align-items-center gap-2">
-                    <input type="radio" /> Master Card
+                    <input type="radio" name="paymentMethod" value="Master Card" /> Master Card
                   </label>
                   <img src={masterCard} alt="" />
                 </div>
 
                 <div className="payment mt-3 d-flex align-items-center justify-content-between">
                   <label htmlFor="" className="d-flex align-items-center gap-2">
-                    <input type="radio" /> Paypal
+                    <input type="radio" name="paymentMethod" value="Paypal" /> Paypal
                   </label>
                   <img src={paypal} alt="" />
                 </div>
                 <div className="payment text-end mt-5">
-                  <button onClick={reserveCar}>Reserve Now</button>
+                  <button className='btn' onClick={handleReserveNow}>Reserve Now</button>
                 </div>
               </div>
             </Col>
