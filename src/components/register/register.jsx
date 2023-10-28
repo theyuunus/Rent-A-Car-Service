@@ -62,6 +62,7 @@ export default function Register({ handleRegister }) {
                         name="name"
                         value={formData.name}
                         onChange={handleChange}
+                        required
                       />
                       <br />
                       <input
@@ -70,6 +71,7 @@ export default function Register({ handleRegister }) {
                         name="password"
                         value={formData.password}
                         onChange={handleChange}
+                        required
                       />
                       <br />
                       <input
@@ -78,6 +80,7 @@ export default function Register({ handleRegister }) {
                         name="email"
                         value={formData.email}
                         onChange={handleChange}
+                        required
                       />
                     </div>
                     <div className="Register-section-div-btn">

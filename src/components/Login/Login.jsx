@@ -116,6 +116,7 @@ export default function Login({ handleLogin }) {
                                             name="name"
                                             value={formData.name}
                                             onChange={handleChange}
+                                            required
                                         />
                                         <input
                                             placeholder="Password"
@@ -123,6 +124,7 @@ export default function Login({ handleLogin }) {
                                             name="password"
                                             value={formData.password}
                                             onChange={handleChange}
+                                            required
                                         />
                                     </div>
                                     <div className="login-section-div-btn">

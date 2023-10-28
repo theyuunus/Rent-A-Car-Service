@@ -256,12 +256,9 @@
   "User": [
     {
       "name": "Yunus",
-      "password": "1",
+      "password": "1234",
       "email": "obidxojayevbotir@gmail.com",
-      "id": 1
+      "id": 2
     }
-  ],
-  "bougth": [
-    {}
   ]
 }
