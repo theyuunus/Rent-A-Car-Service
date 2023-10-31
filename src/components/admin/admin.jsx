@@ -147,6 +147,7 @@ function AdminPage() {
                             name="brand"
                             value={carData.brand}
                             onChange={handleChange}
+                            required
                         />
                         <br />
                         <label htmlFor="carName">Car Name:</label>
@@ -156,6 +157,7 @@ function AdminPage() {
                             name="carName"
                             value={carData.carName}
                             onChange={handleChange}
+                            required
                         />
                         <br />
                         <label htmlFor="image">Image File:</label>
@@ -164,6 +166,7 @@ function AdminPage() {
                             id="image"
                             name="image"
                             onChange={handleImageChange}
+                            required
                         />
                         <br />
                         <label htmlFor="model">Model:</label>
@@ -173,6 +176,7 @@ function AdminPage() {
                             name="model"
                             value={carData.model}
                             onChange={handleChange}
+                            required
                         />
                         <br />
                         <label htmlFor="price">Price:</label>
@@ -182,6 +186,7 @@ function AdminPage() {
                             name="price"
                             value={carData.price}
                             onChange={handleChange}
+                            required
                         />
                         <br />
                         <label htmlFor="speed">Speed:</label>
@@ -191,6 +196,7 @@ function AdminPage() {
                             name="speed"
                             value={carData.speed}
                             onChange={handleChange}
+                            required
                         />
                         <br />
                         <label htmlFor="gps">gps:</label>
@@ -200,6 +206,7 @@ function AdminPage() {
                             name="gps"
                             value={carData.gps}
                             onChange={handleChange}
+                            required
                         />
                         <br />
 
@@ -210,6 +217,7 @@ function AdminPage() {
                             name="seatType"
                             value={carData.seatType}
                             onChange={handleChange}
+                            required
                         />
                         <br />
                         <label htmlFor="automatic">automatic:</label>
@@ -219,6 +227,7 @@ function AdminPage() {
                             name="automatic"
                             value={carData.automatic}
                             onChange={handleChange}
+                            required
                         />
                         <br />
                         <label htmlFor="description">description:</label>
@@ -228,6 +237,7 @@ function AdminPage() {
                             name="description"
                             value={carData.description}
                             onChange={handleChange}
+                            required
                         />
                         <br />
                         <label htmlFor="description">rating:</label>
@@ -237,6 +247,7 @@ function AdminPage() {
                             name="rating"
                             value={carData.rating}
                             onChange={handleChange}
+                            required
                         />
                         <br />
                         {isEditMode ? (
