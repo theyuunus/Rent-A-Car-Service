@@ -1,0 +1,5 @@
+buildCommand: npm install && npm run build
+startCommand: npm start
+env:
+  - name: NODE_VERSION
+    value: 18
